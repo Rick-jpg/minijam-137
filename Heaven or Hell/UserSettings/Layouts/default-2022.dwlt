@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 321}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 85
+  controlID: 39
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 1062
     height: 631
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -301,7 +301,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 704
-    width: 1398
+    width: 1302
     height: 287
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -432,12 +432,12 @@ MonoBehaviour:
       oldMaxSizes: 
       oldSplitSize: 0
     m_HorizontalSplitter:
-      ID: 1031
+      ID: 62
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes:
-      - 419
-      - 979
+      - 391
+      - 911
       relativeSizes:
       - 0.3
       - 0.7
@@ -447,7 +447,7 @@ MonoBehaviour:
       maxSizes:
       - 0
       - 0
-      lastTotalSize: 1398
+      lastTotalSize: 1302
       splitSize: 6
       xOffset: 0
       m_Version: 1
@@ -497,7 +497,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -5836
+  m_LastSelectedObjectID: -56548
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -613,7 +613,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Manager
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -621,16 +621,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Manager
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\UnityProjects\Personal\MiniJam137\Heaven or Hell
+  m_LastProjectPath: D:\GitProjects\minijam-137\Heaven or Hell
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5e590000
-    m_LastClickedID: 22878
-    m_ExpandedIDs: 00000000d6590000
+    m_SelectedIDs: 22060000
+    m_LastClickedID: 1570
+    m_ExpandedIDs: 00000000f2050000be06000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -658,7 +658,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d6590000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -683,8 +683,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 80d8ffff
-    m_LastClickedInstanceID: -10112
+    m_SelectedInstanceIDs: 1c23ffff
+    m_LastClickedInstanceID: -56548
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000fa9000005a2b0100d0030100
     m_RenameOverlay:
@@ -755,7 +755,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 432
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -798,9 +798,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 38590000
-      m_LastClickedID: 22840
-      m_ExpandedIDs: 2cfbffff3059000038590000
+      m_SelectedIDs: 1c23ffff
+      m_LastClickedID: -56548
+      m_ExpandedIDs: 6423ffffea30ffff5632ffff7c7f0000887f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1193,9 +1193,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -13.982315, y: 0, z: 56}
+    m_Target: {x: 8.827552, y: 4.47441, z: 189.98051}
     speed: 2
-    m_Value: {x: -13.982311, y: 0.00003572008, z: 56.000027}
+    m_Value: {x: 8.827552, y: 4.47441, z: 189.98051}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1241,20 +1241,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.09945241, y: -0.8300636, z: 0.20986731, w: 0.5070102}
+    m_Target: {x: -0.02148841, y: -0.99616677, z: -0.031013055, w: -0.0789004}
     speed: 2
-    m_Value: {x: 0.099452406, y: -0.8300635, z: 0.2098673, w: 0.5070103}
+    m_Value: {x: -0.021488441, y: -0.99616826, z: -0.031013101, w: -0.078900516}
   m_Size:
-    m_Target: 98.68032
+    m_Target: 10.507833
     speed: 2
-    m_Value: 98.68034
+    m_Value: 10.507833
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1
-    m_SpeedNormalized: 0.5
+    m_Speed: 1.7201394
+    m_SpeedNormalized: 0.8599997
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -1339,7 +1339,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
