@@ -19,6 +19,11 @@ public class Law
         return lawType;
     }
 
+    public string GetSentence()
+    {
+        return lawBookSentence;
+    }
+
     // Set the variables
     public void SetVariables(int index, LawType type) { this.index = index; this.lawType = type; }
     public void SetSentence(string lawText) { lawBookSentence = lawText; }
