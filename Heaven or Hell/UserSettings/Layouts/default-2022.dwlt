@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 1062
     height: 631
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -301,7 +301,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 704
-    width: 1398
+    width: 1302
     height: 287
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -432,12 +432,12 @@ MonoBehaviour:
       oldMaxSizes: 
       oldSplitSize: 0
     m_HorizontalSplitter:
-      ID: 1031
+      ID: 62
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes:
-      - 419
-      - 979
+      - 391
+      - 911
       relativeSizes:
       - 0.3
       - 0.7
@@ -447,7 +447,7 @@ MonoBehaviour:
       maxSizes:
       - 0
       - 0
-      lastTotalSize: 1398
+      lastTotalSize: 1302
       splitSize: 6
       xOffset: 0
       m_Version: 1
@@ -1253,8 +1253,8 @@ MonoBehaviour:
     speed: 2
     m_Value: 1
   m_CameraSettings:
-    m_Speed: 1
-    m_SpeedNormalized: 0.5
+    m_Speed: 1.7201394
+    m_SpeedNormalized: 0.8599997
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1

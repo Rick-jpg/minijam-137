@@ -31,6 +31,9 @@ public class CharacterManager : MonoBehaviour
         Person newPerson = new Person(hair, shirt, accessory, eye, speech);
         currentPerson = newPerson;
 
+        // TODO: give this script reference to lawmanager somehow (Overarching manager?)
+        //newPerson.SetIsGuilty(LawManager.CheckGuilty(newPerson));
+
         uiContext.SetContext(newPerson);
     }
 
