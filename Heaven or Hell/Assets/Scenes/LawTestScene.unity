@@ -319,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083109699}
   - component: {fileID: 2083109698}
+  - component: {fileID: 2083109701}
   - component: {fileID: 2083109700}
   m_Layer: 0
   m_Name: manager
@@ -339,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fc1c039c9c2174dbf9a5357546b545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiContext: {fileID: 2083109700}
+  uiContext: {fileID: 11400000, guid: a0c372acdfc60054e835a6d733419c49, type: 2}
 --- !u!4 &2083109699
 Transform:
   m_ObjectHideFlags: 0
@@ -364,87 +365,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 2083109697}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7681f2d81883b224098a25762f92fdc8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c97a4e1f7be92742a169d07308b9936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hairColorOptions:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  shirtColorOptions:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  accessoriesOptions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eyeColorOptions:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  introductionsOptions:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  actionsOptions:
-  - 
-  - 
-  - 
-  - 
-  amountOptions:
-  - 
-  - 
-  - 
-  objectsOptions:
-  - 
-  - 
-  - 
-  - 
-  - 
   UIHair: {fileID: 0}
   UIShirt: {fileID: 0}
   UIAccessory: {fileID: 0}
   UIEye: {fileID: 0}
   speechText: {fileID: 0}
+--- !u!114 &2083109701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083109697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49e7446ecc9ce74e86abc5e8d62c560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiContext: {fileID: 11400000, guid: a0c372acdfc60054e835a6d733419c49, type: 2}
+  hairCount: 0
+  shirtCount: 0
+  accessoryCount: 0
+  eyeCount: 0
+  introCount: 0
+  actionCount: 0
+  amountCount: 0
+  objectCount: 0
