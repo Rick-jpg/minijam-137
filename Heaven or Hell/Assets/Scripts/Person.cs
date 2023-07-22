@@ -10,6 +10,8 @@ public class Person
     [SerializeField] private int eyeIndex;
     [SerializeField] private Speech speech;
 
+    [SerializeField] bool isGuilty;
+
     public Person(int hairIndex, int shirtIndex, int accessoryIndex, int eyeIndex, Speech speech)
     {
         this.hairIndex = hairIndex;
@@ -44,4 +46,6 @@ public class Person
         return speech;
     }
 
+    public bool GetGuilty () { return isGuilty; }
+    public void SetIsGuilty(bool value) { isGuilty = value; }
 }

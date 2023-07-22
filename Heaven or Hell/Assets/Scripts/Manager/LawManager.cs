@@ -8,7 +8,7 @@ public class LawManager : MonoBehaviour
     [SerializeField] UIContext uiContext;
     [SerializeField] List<Law> lawList = new();
 
-    public void AddLaw(Law newLaw)
+    void AddLaw(Law newLaw)
     {
         lawList.Add(newLaw);
     }
@@ -36,8 +36,79 @@ public class LawManager : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, maxCount);
 
         newLaw.SetVariables(randomIndex, type);
+        newLaw.SetSentence(MakeSentence(newLaw));
 
         AddLaw(newLaw);
+    }
+
+    // Makes the sentence for the law book
+    public string MakeSentence(Law currentLaw)
+    {
+        string sentence = "";
+
+        switch (currentLaw.GetLawType())
+        {
+            case LawType.Shirt:
+                sentence += "People wearing " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType()) + " shirt"; 
+                break;
+
+            case LawType.Hair:
+                sentence += "People with " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType()) + " hair";
+                break;
+
+            case LawType.Accessory:
+                sentence += "People wearing " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType()) + " accessory";
+                break;
+
+            case LawType.Eye:
+                sentence += "People with " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType()) + " colored eyes";
+                break;
+
+            case LawType.Action:
+                sentence += "People that have done " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType());
+                break;
+
+            case LawType.Amount:
+                sentence += "People that say the number " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType());
+                break;
+
+            case LawType.Keyword:
+                sentence += "People talking about " + uiContext.GetAttributeText(currentLaw.GetIndex(), currentLaw.GetLawType());
+                break;
+
+            default:
+                break;
+        }
+
+        sentence += " shall not be allowed entrance.";
+
+        return sentence;
+    }
+
+    // Returns true if the given character's traits
+    public bool CheckGuilty(Person character)
+    {
+        // Go through each active law and check against the person
+        for (int i = 0; i < lawList.Count; i++)
+        {
+            var attributeIndex = lawList[i].GetLawType() switch
+            {
+                LawType.Shirt => character.GetShirtIndex(),
+                LawType.Hair => character.GetHairIndex(),
+                LawType.Accessory => character.GetAccessoryIndex(),
+                LawType.Eye => character.GetEyeIndex(),
+                LawType.Action => character.GetSpeech().GetActionIndex(),
+                LawType.Amount => character.GetSpeech().GetAmountIndex(),
+                LawType.Keyword => character.GetSpeech().GetObjectIndex(),
+                _ => 0,
+            };
+
+            if (attributeIndex == lawList[i].GetIndex())
+                return true;
+        }
+
+        // If no overlap, person is not guilty
+        return false;
     }
 
     public List<Law> GetLawList() { return lawList; }

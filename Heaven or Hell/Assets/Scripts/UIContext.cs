@@ -11,6 +11,11 @@ public class UIContext : MonoBehaviour
     [SerializeField] private Color[] shirtColorOptions;
     [SerializeField] private Texture[] accessoriesOptions;
     [SerializeField] private Color[] eyeColorOptions;
+    [Space]
+    [SerializeField] string[] hairColorTexts;
+    [SerializeField] string[] shirtColorTexts;
+    [SerializeField] string[] accessoriesTexts;
+    [SerializeField] string[] eyeColorTexts;
     [Header("Speech Options")]
     [SerializeField] private string[] introductionsOptions;
     [SerializeField] private string[] actionsOptions;
@@ -75,5 +80,22 @@ public class UIContext : MonoBehaviour
     public int ActionMaxCount => actionsOptions.Length;
     public int AmountMaxCount => amountOptions.Length;
     public int ObjectMaxCount => objectsOptions.Length;
+
+    public string GetAttributeText(int index, LawType type)
+    {
+        string text = type switch
+        {
+            LawType.Shirt => hairColorTexts[index],
+            LawType.Hair => hairColorTexts[index],
+            LawType.Accessory => accessoriesTexts[index],
+            LawType.Eye => eyeColorTexts[index],
+            LawType.Action => actionsOptions[index],
+            LawType.Amount => amountOptions[index],
+            LawType.Keyword => objectsOptions[index],
+            _ => "Law_Object",
+        };
+
+        return text;
+    }
     #endregion
 }
