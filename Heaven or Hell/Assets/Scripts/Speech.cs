@@ -8,6 +8,7 @@ public class Speech
     [SerializeField] private int actionIndex;
     [SerializeField] private int amountIndex;
     [SerializeField] private int objectIndex;
+    private bool isAnConfession;
 
     public Speech(int introductionIndex, int actionIndex, int amountIndex, int objectIndex)
     {
@@ -15,6 +16,15 @@ public class Speech
         this.actionIndex = actionIndex;
         this.amountIndex = amountIndex;
         this.objectIndex = objectIndex;
+
+        if(introductionIndex == 0)
+        {
+            this.isAnConfession = true;
+        }
+        else
+        {
+            this.isAnConfession= false;
+        }
     }
 
     public int GetIntroductionIndex()
@@ -35,5 +45,10 @@ public class Speech
     public int GetObjectIndex()
     {
         return objectIndex;
+    }
+
+    public bool GetConfession()
+    {
+        return isAnConfession;
     }
 }

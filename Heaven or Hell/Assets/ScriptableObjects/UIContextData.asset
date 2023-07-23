@@ -29,7 +29,13 @@ MonoBehaviour:
   - {r: 0.7787166, g: 0.39716092, b: 0.8018868, a: 1}
   - {r: 0.31990921, g: 0.8584906, b: 0.47672674, a: 1}
   accessoriesOptions:
-  - {fileID: 0}
+  - {fileID: 2800000, guid: 77747c7c7d0b34f41b1e439617b977f7, type: 3}
+  - {fileID: 2800000, guid: 77f3a16ff7e7e584e878678612b77112, type: 3}
+  - {fileID: 2800000, guid: 92e145507e275fa46821dac4f490a1c6, type: 3}
+  - {fileID: 2800000, guid: fdb10c40679b46c45a2055e612e27d4f, type: 3}
+  - {fileID: 2800000, guid: a2bbd112dcfe7cf4aa8e9a82a9feb115, type: 3}
+  - {fileID: 2800000, guid: 293efcf15e0fcc642985f4bb5534233f, type: 3}
+  - {fileID: 2800000, guid: 571546bd5e1ccdf4d8ae8709bad19582, type: 3}
   eyeColorOptions:
   - {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   - {r: 0.8584906, g: 0.8326223, b: 0.4251958, a: 1}
@@ -55,7 +61,13 @@ MonoBehaviour:
   - Purple
   - Green
   accessoriesTexts:
-  - 
+  - Bandana
+  - Ear rings
+  - Bow
+  - Cat ears
+  - Crown
+  - Piercings
+  - Hat
   eyeColorTexts:
   - Gray
   - Yellow
@@ -73,11 +85,32 @@ MonoBehaviour:
   - I'm being blamed for
   - I have not been
   actionsOptions:
-  - 
-  - 
+  - stealing
+  - talking to
+  - targeting
+  - romancing
+  - playing with
+  - worshipping
+  - fighting
+  - defending
+  - befriending
   amountOptions:
-  - 
-  - 
+  - some
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
   objectsOptions:
-  - 
-  - 
+  - fruits
+  - people
+  - animals
+  - nerds
+  - models
+  - games
+  - deities
+  - snacks
+  - bugs

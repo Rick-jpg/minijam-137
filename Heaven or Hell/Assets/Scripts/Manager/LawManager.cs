@@ -6,19 +6,36 @@ using UnityEngine;
 public class LawManager : MonoBehaviour
 {
     [SerializeField] UIContext uiContext;
-    [SerializeField] LawBook book;
-    [SerializeField] List<Law> lawList = new();
+    [SerializeField] private List<Law> lawList;
+
+
+    public delegate void SetSentence(string sentence);
+    public static SetSentence OnSetSentence;
+
+    public void SetupLaws(int startLaws)
+    {
+        lawList = new List<Law>();
+        string startSentence = "People that confess to their crimes shall not be allowed entrance.";
+        MakeStartLaw(startSentence);
+
+        for (int i = 0; i < startLaws; i++)
+        {
+            MakeNewLaw();
+        }
+    }
 
     void AddLaw(Law newLaw)
     {
         lawList.Add(newLaw);
     }
-
-    [ContextMenu("Make Law")]
+    public void MakeStartLaw(string startSentence)
+    {
+        OnSetSentence.Invoke(startSentence);
+    }
     // makes a random law
     public void MakeNewLaw()
     {
-        Law newLaw = new();
+        Law newLaw = new Law();
 
         Array types = Enum.GetValues(typeof(LawType));
         int t = UnityEngine.Random.Range(0, types.Length);
@@ -39,9 +56,10 @@ public class LawManager : MonoBehaviour
 
         newLaw.SetVariables(randomIndex, type);
         newLaw.SetSentence(MakeSentence(newLaw));
-        book.AddLineToBook(newLaw.GetSentence());
+        OnSetSentence.Invoke(newLaw.GetSentence());
 
         AddLaw(newLaw);
+        Debug.Log(lawList.Count);
     }
 
     // Makes the sentence for the law book
@@ -91,6 +109,10 @@ public class LawManager : MonoBehaviour
     // Returns true if the given character's traits
     public bool CheckGuilty(Person character)
     {
+        Debug.Log(lawList.Count);
+        // Check if the speech is an confession
+        Speech confession = character.GetSpeech();
+        if (confession.GetConfession() == true) return true;
         // Go through each active law and check against the person
         for (int i = 0; i < lawList.Count; i++)
         {
