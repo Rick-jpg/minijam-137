@@ -18,12 +18,6 @@ public class LawBook : MonoBehaviour
         LawManager.OnSetSentence -= AddLineToBook;
     }
 
-    private void Start()
-    {
-        string startSentence = "People that confess to their crimes shall not be allowed entrance.";
-        AddLineToBook(startSentence);
-    }
-
     public void AddLineToBook(string sentence)
     {
         var bookLineClone = Instantiate(lawbookLinePrefab,parentGameObject.transform);
