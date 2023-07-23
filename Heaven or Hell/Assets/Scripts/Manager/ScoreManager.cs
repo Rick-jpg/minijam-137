@@ -23,6 +23,8 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] Animator damageVignette;
 
+    [SerializeField] AudioSource musicSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +72,7 @@ public class ScoreManager : MonoBehaviour
         GameplayManager.Instance.SpawnGameOverPrefab();
         OnGetScores?.Invoke(rightCounter, wrongCounter);
 
+        musicSource.Stop();
         Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 5));
     }
 
