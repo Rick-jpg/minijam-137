@@ -57,5 +57,6 @@ public class VisualsManager : MonoBehaviour
 
         string speechSentence = CreateSentence();
         speechText.SetText(speechSentence);
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 1));
     }
 }

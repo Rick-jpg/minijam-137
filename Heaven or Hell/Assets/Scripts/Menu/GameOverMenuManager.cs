@@ -35,6 +35,7 @@ public class GameOverMenuManager : MonoBehaviour
 
     IEnumerator GoBackSequence()
     {
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
         fadeObject.Play("FadeAnimationReverse");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("MainMenu");

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LawManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class LawManager : MonoBehaviour
 
     public delegate void SetSentence(string sentence);
     public static SetSentence OnSetSentence;
+
 
     public void SetupLaws(int startLaws)
     {
@@ -38,38 +40,36 @@ public class LawManager : MonoBehaviour
     [ContextMenu("Make Law")]
     public void MakeNewLaw()
     {
-        if (currentLaws == maxLaws) return;
         Law newLaw = new Law();
-
-        Array types = Enum.GetValues(typeof(LawType));
-        int t = UnityEngine.Random.Range(0, types.Length);
-        LawType type = (LawType)t;
-        int maxCount = type switch
+        do
         {
-            LawType.Shirt => uiContext.ShirtMaxCount,
-            LawType.Hair => uiContext.HairMaxCount,
-            LawType.Accessory => uiContext.AccessoryMaxCount,
-            LawType.Eye => uiContext.EyeMaxCount,
-            LawType.Action => uiContext.ActionMaxCount,
-            LawType.Amount => uiContext.AmountMaxCount,
-            LawType.Keyword => uiContext.ObjectMaxCount,
-            _ => 1,
-        };
+            if (currentLaws == maxLaws) return;
 
-        int randomIndex = UnityEngine.Random.Range(0, maxCount);
+            Array types = Enum.GetValues(typeof(LawType));
+            int t = UnityEngine.Random.Range(0, types.Length);
+            LawType type = (LawType)t;
+            int maxCount = type switch
+            {
+                LawType.Shirt => uiContext.ShirtMaxCount,
+                LawType.Hair => uiContext.HairMaxCount,
+                LawType.Accessory => uiContext.AccessoryMaxCount,
+                LawType.Eye => uiContext.EyeMaxCount,
+                LawType.Action => uiContext.ActionMaxCount,
+                LawType.Amount => uiContext.AmountMaxCount,
+                LawType.Keyword => uiContext.ObjectMaxCount,
+                _ => 1,
+            };
 
-        newLaw.SetVariables(randomIndex, type);
-        newLaw.SetSentence(MakeSentence(newLaw));
-        if(lawList.Contains(newLaw))
-        {
-            Debug.Log("Already exists");
-            MakeNewLaw();
-            return;
+            int randomIndex = UnityEngine.Random.Range(0, maxCount);
+
+            newLaw.SetVariables(randomIndex, type);
+            newLaw.SetSentence(MakeSentence(newLaw));
+
         }
+        while (lawList.Contains(newLaw));
         OnSetSentence?.Invoke(newLaw.GetSentence());
         AddLaw(newLaw);
         currentLaws++;
-
     }
 
     // Makes the sentence for the law book
@@ -119,7 +119,6 @@ public class LawManager : MonoBehaviour
     // Returns true if the given character's traits
     public bool CheckGuilty(Person character)
     {
-        Debug.Log(lawList.Count);
         // Check if the speech is an confession
         Speech confession = character.GetSpeech();
         if (confession.GetConfession() == true) return true;

@@ -59,8 +59,8 @@ public class GameplayManager : MonoBehaviour
 
     private void AddScore()
     {
-        scoreManager.AddPositiveToProgress();
-        timer.AddToTimer();
+        scoreManager.AddPositiveToProgress(GetLawAmount());
+        timer.AddToTimer(GetLawAmount());
     }
 
     public void RemoveScore()
@@ -80,9 +80,13 @@ public class GameplayManager : MonoBehaviour
 
     public void CheckToAddNewLaw()
     {
-        if (roundsAmount % roundsForNewLaw != 0) return;
+        if (roundsAmount % roundsForNewLaw == 0)
+        {
+            if (GetLawAmount() >= 10) return;
             lawManager.MakeNewLaw();
-        OnShowLawCreated?.Invoke();
+            OnShowLawCreated?.Invoke();
+            Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 6));
+        }
     }
 
     public void SetGameOver(bool toggle) { isGameOver = false; }
@@ -93,5 +97,6 @@ public class GameplayManager : MonoBehaviour
         Instantiate(gameOverPrefab);
     }
     public Animator GetFadeAnimator() { return fadeAnimator; }
+    public int GetLawAmount() { return lawManager.GetLawList().Count; }
     
 }

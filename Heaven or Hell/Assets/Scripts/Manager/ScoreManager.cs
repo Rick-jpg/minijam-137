@@ -10,8 +10,8 @@ public class ScoreManager : MonoBehaviour
     [Range(0f, 100f)] private float currentProgress;
     private float maxProgress = 50f;
 
-    private const float ADDEDPROGRESS = 10f;
-    private const float REMOVEDPROGRESS = -33f;
+    private float addedProgress;
+    private const float REMOVEDPROGRESS = -30f;
 
     private int rightCounter, wrongCounter;
     [SerializeField] private TMP_Text rightText, wrongText;
@@ -22,6 +22,8 @@ public class ScoreManager : MonoBehaviour
     public static GetScores OnGetScores;
 
     [SerializeField] Animator damageVignette;
+
+    [SerializeField] AudioSource musicSource;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +39,10 @@ public class ScoreManager : MonoBehaviour
         slider.value = currentProgress;
     }
 
-    public void AddPositiveToProgress()
+    public void AddPositiveToProgress(int lawAmount)
     {
-        AddValueToProgress(ADDEDPROGRESS);
+        addedProgress = CalculateAddedTime(lawAmount);
+        AddValueToProgress(addedProgress);
         rightCounter++;
         UpdateUI();
     }
@@ -51,13 +54,16 @@ public class ScoreManager : MonoBehaviour
         damageVignette.Play("DamageAnimation", -1, 0);
         CheckForGameOver(currentProgress);
         UpdateUI();
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 4));
     }
 
     public void TakeDamage()
     {
         AddValueToProgress(REMOVEDPROGRESS);
+        damageVignette.Play("DamageAnimation", -1, 0);
         CheckForGameOver(currentProgress);
         UpdateUI();
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 4));
     }
 
     void CheckForGameOver(float progress)
@@ -66,12 +72,20 @@ public class ScoreManager : MonoBehaviour
         GameplayManager.Instance.SpawnGameOverPrefab();
         OnGetScores?.Invoke(rightCounter, wrongCounter);
 
+        musicSource.Stop();
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 5));
     }
 
     void UpdateUI()
     {
         rightText.SetText(rightCounter.ToString());
         wrongText.SetText(wrongCounter.ToString());
+    }
+
+    public float CalculateAddedTime(int lawAmount)
+    {
+        float difference = (float)6 - (0.5f * lawAmount);
+        return difference;
     }
 
 

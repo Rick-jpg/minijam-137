@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
 
     [Header("Variables")]
     [SerializeField] float selectedWaitTime = 1.5f;
+    [SerializeField] Animator tutorialCanvas;
 
     public void StartGame()
     {
@@ -24,21 +25,25 @@ public class MenuManager : MonoBehaviour
     {
         DoFade(true);
         canSelect = false;
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
         yield return new WaitForSeconds(selectedWaitTime);
         SceneManager.LoadScene(1);
     }
 
-    public void CreditsButton()
+    public void TutorialButton()
     {
         if (!canSelect)
             return;
 
-        StartCoroutine(CreditsSequence());
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
+        tutorialCanvas.Play("TutorialPopup");
     }
 
-    IEnumerator CreditsSequence()
+    public void EndTutorialButton()
     {
-        yield return new WaitForSeconds(selectedWaitTime);
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
+        tutorialCanvas.Play("TutorialPopdown");
+        canSelect = true;
     }
 
     public void Exitgame()
@@ -53,6 +58,7 @@ public class MenuManager : MonoBehaviour
     {
         DoFade(true);
         canSelect = false;
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
         yield return new WaitForSeconds(selectedWaitTime);
         Application.Quit();
     }

@@ -66,11 +66,13 @@ public class CharacterManager : MonoBehaviour
     [ContextMenu("Go To Heaven")]
     public void GoToHeaven()
     {
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 3));
         animator.Play("ExitHeaven");
     }
     [ContextMenu("Go To Hell")]
     public void GoToHell()
     {
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 2));
         animator.Play("ExitHell");
     }
 }

@@ -10,7 +10,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private float currentTime;
     [SerializeField] private TMP_Text timerText;
 
-    private const float ADDEDTIME = 12f;
+    private int startAddedTime = 14;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +38,16 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void AddToTimer()
+    public void AddToTimer(int lawAmount)
     {
-        currentTime += ADDEDTIME;
+        float addedTime = CalculateAddedTime(lawAmount);
+        currentTime += addedTime;
+    }
+
+    public float CalculateAddedTime(int lawAmount)
+    {
+        int difference = (startAddedTime - lawAmount) - 2;
+        Debug.Log(difference);
+        return Convert.ToSingle(difference);
     }
 }
