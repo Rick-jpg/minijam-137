@@ -9,9 +9,11 @@ public class UIContext : ScriptableObject
 {
     [Header("Player Options")]
     [SerializeField] public Color[] hairColorOptions;
+    [SerializeField] public Texture[] hairStyleOptions;
     [SerializeField] public Color[] shirtColorOptions;
     [SerializeField] public Texture[] accessoriesOptions;
     [SerializeField] public Color[] eyeColorOptions;
+    [SerializeField] public Color[] skinColorOptions;
     [Space]
     [SerializeField] public string[] hairColorTexts;
     [SerializeField] public string[] shirtColorTexts;
@@ -34,6 +36,8 @@ public class UIContext : ScriptableObject
     public int ActionMaxCount => actionsOptions.Length;
     public int AmountMaxCount => amountOptions.Length;
     public int ObjectMaxCount => objectsOptions.Length;
+    public int HairStyleMaxCount => hairStyleOptions.Length;
+    public int SkinMaxCount => skinColorOptions.Length;
 
     public string GetAttributeText(int index, LawType type)
     {

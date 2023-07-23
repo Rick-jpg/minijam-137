@@ -5943,9 +5943,17 @@ PrefabInstance:
       value: Deny Entry
       objectReference: {fileID: 0}
     - target: {fileID: 7420507318616553913, guid: 4ed66f3dfecb03d4f996c9f348c19d60, type: 3}
+      propertyPath: UISkin
+      value: 
+      objectReference: {fileID: 1142044806}
+    - target: {fileID: 7420507318616553913, guid: 4ed66f3dfecb03d4f996c9f348c19d60, type: 3}
       propertyPath: uiContext
       value: 
       objectReference: {fileID: 11400000, guid: a0c372acdfc60054e835a6d733419c49, type: 2}
+    - target: {fileID: 7420507318616553913, guid: 4ed66f3dfecb03d4f996c9f348c19d60, type: 3}
+      propertyPath: UIHairStyle
+      value: 
+      objectReference: {fileID: 1306427310}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

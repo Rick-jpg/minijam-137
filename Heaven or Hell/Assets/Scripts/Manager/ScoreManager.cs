@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
@@ -39,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     void CheckForGameOver(float progress)
     {
         if (progress > 0) return;
+        SceneManager.LoadScene(0);
 
     }
 

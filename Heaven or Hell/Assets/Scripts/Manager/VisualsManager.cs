@@ -8,11 +8,11 @@ public class VisualsManager : MonoBehaviour
 {
     [SerializeField] UIContext uiContext;
 
-    private Color chosenHairColor, chosenShirtColor, chosenEyeColor;
-    private Texture chosenAccessory;
+    private Color chosenHairColor, chosenShirtColor, chosenEyeColor, chosenSkinColor;
+    private Texture chosenAccessory, chosenHairStyle;
     private string chosenIntroduction, chosenAction, chosenAmount, chosenObject;
 
-    [SerializeField] private RawImage UIHair, UIShirt, UIAccessory, UIEye;
+    [SerializeField] private RawImage UIHair,UIShirt, UIAccessory, UIEye, UISkin;
     [SerializeField] private TMP_Text speechText;
 
     string CreateSentence()
@@ -30,9 +30,11 @@ public class VisualsManager : MonoBehaviour
     void SetVariablesPlayer(Person createdPerson)
     {
         chosenHairColor = uiContext.hairColorOptions[createdPerson.GetHairIndex()];
+        chosenHairStyle = uiContext.hairStyleOptions[createdPerson.GetHairStyleIndex()];
         chosenShirtColor = uiContext.shirtColorOptions[createdPerson.GetShirtIndex()];
         chosenAccessory = uiContext.accessoriesOptions[createdPerson.GetAccessoryIndex()];
         chosenEyeColor = uiContext.eyeColorOptions[createdPerson.GetEyeIndex()];
+        chosenSkinColor = uiContext.skinColorOptions[createdPerson.GetSkinIndex()];
         SetVariablesSpeech(createdPerson.GetSpeech());
     }
 
@@ -47,9 +49,11 @@ public class VisualsManager : MonoBehaviour
     void SetUI()
     {
         UIHair.color = chosenHairColor;
+        UIHair.texture = chosenHairStyle;
         UIShirt.color = chosenShirtColor;
         UIAccessory.texture = chosenAccessory;
         UIEye.color = chosenEyeColor;
+        UISkin.color = chosenSkinColor;
 
         string speechSentence = CreateSentence();
         speechText.SetText(speechSentence);
