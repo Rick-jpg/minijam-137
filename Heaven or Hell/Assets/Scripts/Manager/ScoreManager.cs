@@ -21,6 +21,8 @@ public class ScoreManager : MonoBehaviour
     public delegate void GetScores(int right, int wrong);
     public static GetScores OnGetScores;
 
+    [SerializeField] Animator damageVignette;
+
     // Start is called before the first frame update
     void Start()
     {
