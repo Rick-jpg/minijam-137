@@ -24,6 +24,8 @@ public class GameplayManager : MonoBehaviour
     private int roundsAmount;
     private int startLaws = 2;
 
+    private int roundsForNewLaw = 8;
+
     private void Start()
     {
         lawManager.SetupLaws(startLaws);
@@ -43,11 +45,18 @@ public class GameplayManager : MonoBehaviour
             scoreManager.AddNegativeToProgress();
         }
         roundsAmount++;
+        CheckToAddNewLaw();
     }
 
     public bool CheckIfPersonIsGuilty(Person newPerson)
     {
         return lawManager.CheckGuilty(newPerson);
+    }
+
+    public void CheckToAddNewLaw()
+    {
+        if (roundsAmount % roundsForNewLaw != 0) return;
+            lawManager.MakeNewLaw();
     }
     
 }

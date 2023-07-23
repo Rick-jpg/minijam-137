@@ -8,7 +8,7 @@ public class CharacterManager : MonoBehaviour
     VisualsManager visuals;
 
     [SerializeField] private UIContext uiContext;
-    [SerializeField] private int hairCount, shirtCount, accessoryCount, eyeCount, introCount, actionCount, amountCount, objectCount;
+    [SerializeField] private int hairCount, hairStyleCount, shirtCount, accessoryCount, skinCount, eyeCount, introCount, actionCount, amountCount, objectCount;
     [SerializeField] Animator animator;
 
     private Person currentPerson;
@@ -21,12 +21,14 @@ public class CharacterManager : MonoBehaviour
     public void GeneratePerson()
     {
         int hair = Random.Range(0, hairCount);
+        int style = Random.Range(0, hairStyleCount);
         int shirt = Random.Range(0, shirtCount);
         int accessory = Random.Range(0, accessoryCount);
         int eye = Random.Range(0, eyeCount);
+        int skin = Random.Range(0, skinCount);
         Speech speech = GenerateSpeech();
 
-        Person newPerson = new Person(hair, shirt, accessory, eye, speech);
+        Person newPerson = new Person(hair, shirt, accessory, eye, speech, skin, style);
         currentPerson = newPerson;
 
         // TODO: give this script reference to lawmanager somehow (Overarching manager?)
@@ -50,9 +52,11 @@ public class CharacterManager : MonoBehaviour
     public void SetMaxCounts()
     {
         hairCount = uiContext.HairMaxCount;
+        hairStyleCount = uiContext.HairStyleMaxCount;
         shirtCount = uiContext.ShirtMaxCount;
         accessoryCount = uiContext.AccessoryMaxCount;
         eyeCount = uiContext.EyeMaxCount;
+        skinCount = uiContext.SkinMaxCount;
         introCount = uiContext.IntroMaxCount;
         actionCount = uiContext.ActionMaxCount;
         amountCount = uiContext.AmountMaxCount;
