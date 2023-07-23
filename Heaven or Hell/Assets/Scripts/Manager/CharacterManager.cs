@@ -2,13 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(VisualsManager))]
 public class CharacterManager : MonoBehaviour
 {
+    VisualsManager visuals;
+
     [SerializeField] private UIContext uiContext;
     [SerializeField] private int hairCount, shirtCount, accessoryCount, eyeCount, introCount, actionCount, amountCount, objectCount;
     [SerializeField] Animator animator;
 
     private Person currentPerson;
+    private void OnEnable()
+    {
+        visuals = GetComponent<VisualsManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +43,7 @@ public class CharacterManager : MonoBehaviour
         // TODO: give this script reference to lawmanager somehow (Overarching manager?)
         //newPerson.SetIsGuilty(LawManager.CheckGuilty(newPerson));
 
-        uiContext.SetContext(newPerson);
+        visuals.SetContext(newPerson);
     }
 
     Speech GenerateSpeech()
