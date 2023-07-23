@@ -6,8 +6,10 @@ using UnityEngine;
 public class LawManager : MonoBehaviour
 {
     [SerializeField] UIContext uiContext;
-    [SerializeField] LawBook book;
     [SerializeField] List<Law> lawList = new();
+
+    public delegate void SetSentence(string sentence);
+    public static SetSentence OnSetSentence;
 
     void AddLaw(Law newLaw)
     {
@@ -39,7 +41,7 @@ public class LawManager : MonoBehaviour
 
         newLaw.SetVariables(randomIndex, type);
         newLaw.SetSentence(MakeSentence(newLaw));
-        book.AddLineToBook(newLaw.GetSentence());
+        OnSetSentence.Invoke(newLaw.GetSentence());
 
         AddLaw(newLaw);
     }

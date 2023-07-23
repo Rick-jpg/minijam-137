@@ -8,6 +8,16 @@ public class LawBook : MonoBehaviour
     [SerializeField] private GameObject lawbookLinePrefab;
     [SerializeField] private GameObject parentGameObject;
 
+    private void OnEnable()
+    {
+        LawManager.OnSetSentence += AddLineToBook;
+    }
+
+    private void OnDisable()
+    {
+        LawManager.OnSetSentence -= AddLineToBook;
+    }
+
     private void Start()
     {
         string startSentence = "People that confess to their crimes shall not be allowed entrance.";
