@@ -402,7 +402,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3724743486886105809}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9200801072157429843}
+        m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
+        m_MethodName: GoToHeaven
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+        m_MethodName: CheckIfGuilty
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &2317356051325941571
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hell
+  m_text: Allow Entry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420c67b01e9677244bc3f3e80ea66411, type: 2}
   m_sharedMaterial: {fileID: -4425534529508304843, guid: 420c67b01e9677244bc3f3e80ea66411, type: 2}
@@ -574,7 +598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -461, y: 75}
+  m_AnchoredPosition: {x: -551, y: 75}
   m_SizeDelta: {x: -1180.6362, y: -712.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &2581730199657817755
@@ -624,8 +648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 340.17087}
-  m_SizeDelta: {x: 330.0983, y: 680.34174}
+  m_AnchoredPosition: {x: 9.9, y: 405.7}
+  m_SizeDelta: {x: 676.5, y: 518.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4096293067338553424
 GameObject:
@@ -878,12 +902,12 @@ RectTransform:
   m_GameObject: {fileID: 4553851097223617179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 134}
-  m_LocalScale: {x: 0.089577, y: 0.089577, z: 0.089577}
+  m_LocalScale: {x: 0.0035259551, y: 0.0035259551, z: 0.0035259551}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7445409280655176991}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1009,8 +1033,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiContext: {fileID: 11400000, guid: a0c372acdfc60054e835a6d733419c49, type: 2}
   hairCount: 0
+  hairStyleCount: 0
   shirtCount: 0
   accessoryCount: 0
+  skinCount: 0
   eyeCount: 0
   introCount: 0
   actionCount: 0
@@ -1050,11 +1076,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c97a4e1f7be92742a169d07308b9936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiContext: {fileID: 0}
+  uiContext: {fileID: 11400000, guid: a0c372acdfc60054e835a6d733419c49, type: 2}
   UIHair: {fileID: 7174233391842206265}
   UIShirt: {fileID: 645249942685601224}
   UIAccessory: {fileID: 1140080975581735882}
   UIEye: {fileID: 1778947394273962022}
+  UISkin: {fileID: 8555190908793395590}
   speechText: {fileID: 686001019880534013}
 --- !u!1 &6569317204490477999
 GameObject:
@@ -1374,7 +1401,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7003231606405488564}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9200801072157429843}
+        m_TargetAssemblyTypeName: CharacterManager, Assembly-CSharp
+        m_MethodName: GoToHell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameplayManager, Assembly-CSharp
+        m_MethodName: CheckIfGuilty
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8969165169125255223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,7 +1492,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Heaven
+  m_text: Deny Entry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 420c67b01e9677244bc3f3e80ea66411, type: 2}
   m_sharedMaterial: {fileID: -4425534529508304843, guid: 420c67b01e9677244bc3f3e80ea66411, type: 2}

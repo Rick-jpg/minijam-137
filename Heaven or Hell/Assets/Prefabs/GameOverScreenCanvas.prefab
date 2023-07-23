@@ -1862,7 +1862,7 @@ RectTransform:
   - {fileID: 2389452708085594541}
   - {fileID: 1356569477765768477}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1945,3 +1945,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeObject: {fileID: 0}
+  totalText: {fileID: 7192154339574536348}
+  rightText: {fileID: 5662227684813908561}
+  wrongText: {fileID: 6399073236081067084}
