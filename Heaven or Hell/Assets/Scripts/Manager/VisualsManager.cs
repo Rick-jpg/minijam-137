@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class VisualsManager : MonoBehaviour
 {
-    UIContext uiContext;
+    [SerializeField] UIContext uiContext;
 
     private Color chosenHairColor, chosenShirtColor, chosenEyeColor;
     private Texture chosenAccessory;
