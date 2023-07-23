@@ -13,6 +13,13 @@ public class GameplayManager : MonoBehaviour
     #region Singleton
     public static GameplayManager Instance;
 
+    private bool isGameOver;
+    [SerializeField] private GameObject gameOverPrefab;
+
+    [SerializeField] private Animator fadeAnimator;
+    public delegate void ShowLawCreated();
+    public static ShowLawCreated OnShowLawCreated;
+
     public GameplayManager()
     {
         if (Instance != this)
@@ -23,6 +30,7 @@ public class GameplayManager : MonoBehaviour
     #endregion
 
     private int roundsAmount;
+    public int RoundsAmount { get { return roundsAmount; } }
     private int startLaws = 2;
 
     private int roundsForNewLaw = 8;
@@ -60,6 +68,11 @@ public class GameplayManager : MonoBehaviour
         scoreManager.AddNegativeToProgress();
     }
 
+    public void TakeDamage()
+    {
+        scoreManager.TakeDamage();
+    }
+
     public bool CheckIfPersonIsGuilty(Person newPerson)
     {
         return lawManager.CheckGuilty(newPerson);
@@ -69,6 +82,16 @@ public class GameplayManager : MonoBehaviour
     {
         if (roundsAmount % roundsForNewLaw != 0) return;
             lawManager.MakeNewLaw();
+        OnShowLawCreated?.Invoke();
     }
+
+    public void SetGameOver(bool toggle) { isGameOver = false; }
+    public bool GetGameOver() { return isGameOver; }
+    public void SpawnGameOverPrefab()
+    {
+        isGameOver = true;
+        Instantiate(gameOverPrefab);
+    }
+    public Animator GetFadeAnimator() { return fadeAnimator; }
     
 }

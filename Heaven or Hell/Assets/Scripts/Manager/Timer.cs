@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private float startTime = 40f;
+    [SerializeField] private float startTime = 10f;
     [SerializeField] private float currentTime;
     [SerializeField] private TMP_Text timerText;
 
@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameplayManager.Instance.GetGameOver() == true) return;
         currentTime -= Time.deltaTime;
         UpdateText();
     }
@@ -29,10 +30,10 @@ public class Timer : MonoBehaviour
     {
         int timer = Convert.ToInt32(currentTime);
         timerText.SetText(timer.ToString());
-        if(timer <= 0)
+        if(timer == 0)
         {
-            GameplayManager.Instance.RemoveScore();
             currentTime = startTime;
+            GameplayManager.Instance.TakeDamage();
         }
     }
 

@@ -12,7 +12,7 @@ public class VisualsManager : MonoBehaviour
     private Texture chosenAccessory, chosenHairStyle;
     private string chosenIntroduction, chosenAction, chosenAmount, chosenObject;
 
-    [SerializeField] private RawImage UIHair,UIShirt, UIAccessory, UIEye, UISkin;
+    [SerializeField] private RawImage UIHair, UIShirt, UIAccessory, UIEye, UISkin;
     [SerializeField] private TMP_Text speechText;
 
     string CreateSentence()
