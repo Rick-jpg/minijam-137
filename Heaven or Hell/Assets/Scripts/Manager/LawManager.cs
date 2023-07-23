@@ -6,6 +6,7 @@ using UnityEngine;
 public class LawManager : MonoBehaviour
 {
     [SerializeField] UIContext uiContext;
+    [SerializeField] LawBook book;
     [SerializeField] List<Law> lawList = new();
 
     void AddLaw(Law newLaw)
@@ -13,6 +14,7 @@ public class LawManager : MonoBehaviour
         lawList.Add(newLaw);
     }
 
+    [ContextMenu("Make Law")]
     // makes a random law
     public void MakeNewLaw()
     {
@@ -37,6 +39,7 @@ public class LawManager : MonoBehaviour
 
         newLaw.SetVariables(randomIndex, type);
         newLaw.SetSentence(MakeSentence(newLaw));
+        book.AddLineToBook(newLaw.GetSentence());
 
         AddLaw(newLaw);
     }
