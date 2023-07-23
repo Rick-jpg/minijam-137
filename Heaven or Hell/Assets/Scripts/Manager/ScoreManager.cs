@@ -17,6 +17,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text rightText, wrongText;
 
     [SerializeField] private Slider slider;
+
+    [SerializeField] Animator damageVignette;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class ScoreManager : MonoBehaviour
     {
         AddValueToProgress(REMOVEDPROGRESS);
         wrongCounter++;
+        damageVignette.Play("DamageAnimation", -1, 0);
         CheckForGameOver(currentProgress);
         UpdateUI();
     }
