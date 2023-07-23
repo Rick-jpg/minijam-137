@@ -8,6 +8,8 @@ public class LawManager : MonoBehaviour
     [SerializeField] UIContext uiContext;
     [SerializeField] private List<Law> lawList;
 
+    private int maxLaws = 10;
+    private int currentLaws = 0;
 
     public delegate void SetSentence(string sentence);
     public static SetSentence OnSetSentence;
@@ -33,8 +35,10 @@ public class LawManager : MonoBehaviour
         OnSetSentence.Invoke(startSentence);
     }
     // makes a random law
+    [ContextMenu("Make Law")]
     public void MakeNewLaw()
     {
+        if (currentLaws == maxLaws) return;
         Law newLaw = new Law();
 
         Array types = Enum.GetValues(typeof(LawType));
@@ -56,10 +60,16 @@ public class LawManager : MonoBehaviour
 
         newLaw.SetVariables(randomIndex, type);
         newLaw.SetSentence(MakeSentence(newLaw));
-        OnSetSentence.Invoke(newLaw.GetSentence());
-
+        if(lawList.Contains(newLaw))
+        {
+            Debug.Log("Already exists");
+            MakeNewLaw();
+            return;
+        }
+        OnSetSentence?.Invoke(newLaw.GetSentence());
         AddLaw(newLaw);
-        Debug.Log(lawList.Count);
+        currentLaws++;
+
     }
 
     // Makes the sentence for the law book
