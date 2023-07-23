@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +12,9 @@ public class ScoreManager : MonoBehaviour
 
     private const float ADDEDPROGRESS = 10f;
     private const float REMOVEDPROGRESS = -33f;
+
+    private int rightCounter, wrongCounter;
+    [SerializeField] private TMP_Text rightText, wrongText;
 
     [SerializeField] private Slider slider;
     // Start is called before the first frame update
@@ -29,12 +33,16 @@ public class ScoreManager : MonoBehaviour
     public void AddPositiveToProgress()
     {
         AddValueToProgress(ADDEDPROGRESS);
+        rightCounter++;
+        UpdateUI();
     }
 
     public void AddNegativeToProgress()
     {
         AddValueToProgress(REMOVEDPROGRESS);
+        wrongCounter++;
         CheckForGameOver(currentProgress);
+        UpdateUI();
     }
 
     void CheckForGameOver(float progress)
@@ -42,6 +50,12 @@ public class ScoreManager : MonoBehaviour
         if (progress > 0) return;
         SceneManager.LoadScene(0);
 
+    }
+
+    void UpdateUI()
+    {
+        rightText.SetText(rightCounter.ToString());
+        wrongText.SetText(wrongCounter.ToString());
     }
 
 
