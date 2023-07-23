@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class MenuManager : MonoBehaviour
         DoFade(true);
         canSelect = false;
         yield return new WaitForSeconds(selectedWaitTime);
+        SceneManager.LoadScene(1);
     }
 
     public void CreditsButton()

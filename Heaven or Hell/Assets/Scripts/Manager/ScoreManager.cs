@@ -18,7 +18,9 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private Slider slider;
 
-    [SerializeField] Animator damageVignette;
+    public delegate void GetScores(int right, int wrong);
+    public static GetScores OnGetScores;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,8 @@ public class ScoreManager : MonoBehaviour
     void AddValueToProgress(float addedProgress)
     {
         currentProgress += addedProgress;
-        if (addedProgress > 100f) addedProgress = 100f;
+        if (currentProgress > 100f) { currentProgress = 100f; }
+        if(currentProgress < 0) { currentProgress = 0; }
         slider.value = currentProgress;
     }
 
@@ -48,10 +51,18 @@ public class ScoreManager : MonoBehaviour
         UpdateUI();
     }
 
+    public void TakeDamage()
+    {
+        AddValueToProgress(REMOVEDPROGRESS);
+        CheckForGameOver(currentProgress);
+        UpdateUI();
+    }
+
     void CheckForGameOver(float progress)
     {
         if (progress > 0) return;
-        SceneManager.LoadScene(0);
+        GameplayManager.Instance.SpawnGameOverPrefab();
+        OnGetScores?.Invoke(rightCounter, wrongCounter);
 
     }
 
