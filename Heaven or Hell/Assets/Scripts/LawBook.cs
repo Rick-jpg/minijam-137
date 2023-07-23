@@ -8,12 +8,12 @@ public class LawBook : MonoBehaviour
     [SerializeField] private GameObject lawbookLinePrefab;
     [SerializeField] private GameObject parentGameObject;
 
-    private void OnEnable()
+    private void Awake()
     {
         LawManager.OnSetSentence += AddLineToBook;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         LawManager.OnSetSentence -= AddLineToBook;
     }
