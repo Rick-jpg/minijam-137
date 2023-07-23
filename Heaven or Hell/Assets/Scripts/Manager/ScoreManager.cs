@@ -24,16 +24,21 @@ public class ScoreManager : MonoBehaviour
         slider.value = currentProgress;
     }
 
-    [ContextMenu("Add")]
     void AddPositiveToProgress()
     {
         AddValueToProgress(ADDEDPROGRESS);
     }
 
-    [ContextMenu("Remove")]
     void AddNegativeToProgress()
     {
         AddValueToProgress(REMOVEDPROGRESS);
+        CheckForGameOver(currentProgress);
+    }
+
+    void CheckForGameOver(float progress)
+    {
+        if (progress > 0) return;
+
     }
 
 

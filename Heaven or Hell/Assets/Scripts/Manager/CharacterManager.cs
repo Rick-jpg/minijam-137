@@ -9,6 +9,7 @@ public class CharacterManager : MonoBehaviour
 
     [SerializeField] private UIContext uiContext;
     [SerializeField] private int hairCount, shirtCount, accessoryCount, eyeCount, introCount, actionCount, amountCount, objectCount;
+    [SerializeField] Animator animator;
 
     private Person currentPerson;
     private void OnEnable()
@@ -66,5 +67,16 @@ public class CharacterManager : MonoBehaviour
         actionCount = uiContext.ActionMaxCount;
         amountCount = uiContext.AmountMaxCount;
         objectCount = uiContext.ObjectMaxCount;
+    }
+
+    [ContextMenu("Go To Heaven")]
+    public void GoToHeaven()
+    {
+        animator.Play("ExitHeaven");
+    }
+    [ContextMenu("Go To Hell")]
+    public void GoToHell()
+    {
+        animator.Play("ExitHell");
     }
 }
