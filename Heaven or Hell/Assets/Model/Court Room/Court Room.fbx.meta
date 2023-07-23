@@ -12,6 +12,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Book
+    second: {fileID: 2100000, guid: c212a09f711f2094b83c243c79cbfacd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Cage
     second: {fileID: 2100000, guid: 5d8d980dc9935d54d99ee247f203a56c, type: 2}
   - first:
@@ -32,13 +37,53 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Judge Hammer Brown
+    second: {fileID: 2100000, guid: c5f3c4a55ed02fb40bc01e01fc6c992e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Judge Hammer Orange
+    second: {fileID: 2100000, guid: fa2a816825e7b0945a0e67fbe2b9f0d0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Judge Hammer Slam thing
+    second: {fileID: 2100000, guid: 2765a9855a8a2a646a9d38cf3da662a0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Judge Table
     second: {fileID: 2100000, guid: 377e3cb768fcbd64b81b8925f2d5c4b8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Paper
+    second: {fileID: 2100000, guid: 278916c5293da0244b4992e123403357, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pen End
+    second: {fileID: 2100000, guid: 70100ec48de235440af3d7c996ad3b8f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pen Middle
+    second: {fileID: 2100000, guid: 451d2d673b360244b887fb162d069881, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pen Point
+    second: {fileID: 2100000, guid: 7558188d19dc4b542a217a49f6cb600d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Podium Wood
     second: {fileID: 2100000, guid: e71c1351562bdf441ae659dd724b91f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof
+    second: {fileID: 2100000, guid: 3f31fab08f8dc7949b5bdbffb33ee497, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

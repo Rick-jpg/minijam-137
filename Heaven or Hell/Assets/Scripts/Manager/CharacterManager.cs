@@ -12,21 +12,10 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] Animator animator;
 
     private Person currentPerson;
+    public Person CurrentPerson { get { return currentPerson; } private set { } }
     private void OnEnable()
     {
         visuals = GetComponent<VisualsManager>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetMaxCounts();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void GeneratePerson()
@@ -41,7 +30,8 @@ public class CharacterManager : MonoBehaviour
         currentPerson = newPerson;
 
         // TODO: give this script reference to lawmanager somehow (Overarching manager?)
-        //newPerson.SetIsGuilty(LawManager.CheckGuilty(newPerson));
+        newPerson.SetIsGuilty(GameplayManager.Instance.CheckIfPersonIsGuilty(currentPerson));
+        Debug.Log(newPerson.GetGuilty());
 
         visuals.SetContext(newPerson);
     }
@@ -57,7 +47,7 @@ public class CharacterManager : MonoBehaviour
         return newSpeech;
     }
 
-    void SetMaxCounts()
+    public void SetMaxCounts()
     {
         hairCount = uiContext.HairMaxCount;
         shirtCount = uiContext.ShirtMaxCount;

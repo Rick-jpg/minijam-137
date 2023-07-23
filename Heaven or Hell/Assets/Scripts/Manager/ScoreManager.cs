@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     [Range(0f, 100f)] private float currentProgress;
-    private float maxProgress = 100f;
+    private float maxProgress = 50f;
 
     private const float ADDEDPROGRESS = 10f;
     private const float REMOVEDPROGRESS = -33f;
@@ -21,15 +21,16 @@ public class ScoreManager : MonoBehaviour
     void AddValueToProgress(float addedProgress)
     {
         currentProgress += addedProgress;
+        if (addedProgress > 100f) addedProgress = 100f;
         slider.value = currentProgress;
     }
 
-    void AddPositiveToProgress()
+    public void AddPositiveToProgress()
     {
         AddValueToProgress(ADDEDPROGRESS);
     }
 
-    void AddNegativeToProgress()
+    public void AddNegativeToProgress()
     {
         AddValueToProgress(REMOVEDPROGRESS);
         CheckForGameOver(currentProgress);
