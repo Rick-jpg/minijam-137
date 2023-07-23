@@ -10,8 +10,8 @@ public class ScoreManager : MonoBehaviour
     [Range(0f, 100f)] private float currentProgress;
     private float maxProgress = 50f;
 
-    private const float ADDEDPROGRESS = 10f;
-    private const float REMOVEDPROGRESS = -33f;
+    private float addedProgress;
+    private const float REMOVEDPROGRESS = -30f;
 
     private int rightCounter, wrongCounter;
     [SerializeField] private TMP_Text rightText, wrongText;
@@ -37,9 +37,10 @@ public class ScoreManager : MonoBehaviour
         slider.value = currentProgress;
     }
 
-    public void AddPositiveToProgress()
+    public void AddPositiveToProgress(int lawAmount)
     {
-        AddValueToProgress(ADDEDPROGRESS);
+        addedProgress = CalculateAddedTime(lawAmount);
+        AddValueToProgress(addedProgress);
         rightCounter++;
         UpdateUI();
     }
@@ -56,6 +57,7 @@ public class ScoreManager : MonoBehaviour
     public void TakeDamage()
     {
         AddValueToProgress(REMOVEDPROGRESS);
+        damageVignette.Play("DamageAnimation", -1, 0);
         CheckForGameOver(currentProgress);
         UpdateUI();
     }
@@ -72,6 +74,12 @@ public class ScoreManager : MonoBehaviour
     {
         rightText.SetText(rightCounter.ToString());
         wrongText.SetText(wrongCounter.ToString());
+    }
+
+    public float CalculateAddedTime(int lawAmount)
+    {
+        float difference = (float)6 - (0.5f * lawAmount);
+        return difference;
     }
 
 

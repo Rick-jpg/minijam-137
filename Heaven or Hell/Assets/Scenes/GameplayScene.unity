@@ -6561,7 +6561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6270a47770bacb6428ab1188bb5f7ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 40
+  startTime: 30
   currentTime: 0
   timerText: {fileID: 925262298}
 --- !u!224 &1680971831
@@ -6958,6 +6958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4882166622864363360, guid: c2493f187d0dd7949802a0e6a4c8db08, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7221,7 +7225,7 @@ MonoBehaviour:
     m_Top: 12
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 18
+  m_Spacing: 22
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
