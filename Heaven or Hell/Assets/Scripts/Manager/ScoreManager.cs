@@ -52,6 +52,7 @@ public class ScoreManager : MonoBehaviour
         damageVignette.Play("DamageAnimation", -1, 0);
         CheckForGameOver(currentProgress);
         UpdateUI();
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 4));
     }
 
     public void TakeDamage()
@@ -60,6 +61,7 @@ public class ScoreManager : MonoBehaviour
         damageVignette.Play("DamageAnimation", -1, 0);
         CheckForGameOver(currentProgress);
         UpdateUI();
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 4));
     }
 
     void CheckForGameOver(float progress)
@@ -68,6 +70,7 @@ public class ScoreManager : MonoBehaviour
         GameplayManager.Instance.SpawnGameOverPrefab();
         OnGetScores?.Invoke(rightCounter, wrongCounter);
 
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 5));
     }
 
     void UpdateUI()

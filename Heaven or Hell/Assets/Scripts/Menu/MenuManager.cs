@@ -24,6 +24,7 @@ public class MenuManager : MonoBehaviour
     {
         DoFade(true);
         canSelect = false;
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
         yield return new WaitForSeconds(selectedWaitTime);
         SceneManager.LoadScene(1);
     }
@@ -38,6 +39,7 @@ public class MenuManager : MonoBehaviour
 
     IEnumerator CreditsSequence()
     {
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
         yield return new WaitForSeconds(selectedWaitTime);
     }
 
@@ -53,6 +55,7 @@ public class MenuManager : MonoBehaviour
     {
         DoFade(true);
         canSelect = false;
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(0, 1));
         yield return new WaitForSeconds(selectedWaitTime);
         Application.Quit();
     }

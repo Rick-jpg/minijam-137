@@ -32,6 +32,7 @@ public class UIToggle : MonoBehaviour
     {
         hasBeenActivated = true;
         toggledGameObject.SetActive(hasBeenActivated);
+        Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 0));
     }
 
 }

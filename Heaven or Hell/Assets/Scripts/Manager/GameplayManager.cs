@@ -33,7 +33,7 @@ public class GameplayManager : MonoBehaviour
     public int RoundsAmount { get { return roundsAmount; } }
     private int startLaws = 2;
 
-    private int roundsForNewLaw = 2;
+    private int roundsForNewLaw = 8;
 
     private void Start()
     {
@@ -82,9 +82,10 @@ public class GameplayManager : MonoBehaviour
     {
         if (roundsAmount % roundsForNewLaw == 0)
         {
-            lawManager.MakeNewLaw();
             if (GetLawAmount() >= 10) return;
+            lawManager.MakeNewLaw();
             OnShowLawCreated?.Invoke();
+            Audiomanager.instance.PlaySound(Audiomanager.instance.GetSound(1, 6));
         }
     }
 
